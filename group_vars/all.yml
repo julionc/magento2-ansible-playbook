@@ -4,3 +4,10 @@ timezone: America/Lima
 
 # Package version
 php_version: 8.1
+mysql_version: 8.0
+
+# Database configuration
+db_host: localhost
+db_name: magento
+db_user: magento
+db_password: magento

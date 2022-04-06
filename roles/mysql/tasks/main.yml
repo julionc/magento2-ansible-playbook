@@ -1,0 +1,37 @@
+---
+- name: Install MySQL {{ mysql_version }}
+  apt:
+    name:
+      ["mysql-server-{{ mysql_version }}", "mysql-client-{{ mysql_version }}"]
+    state: latest
+
+- name: Add MySQL Configuration File
+  template:
+    src: my.cnf.j2
+    dest: /etc/mysql/mysql.conf.d/my.cnf
+    owner: root
+    group: root
+    mode: "0644"
+    backup: yes
+  notify:
+    - Restart MySQL Service
+
+- name: Start MySQL Service
+  command: sudo service mysql start
+
+- name: "Install ansible python3 mysql dependency"
+  apt:
+    name: python3-mysqldb
+    state: latest
+
+- name: Set Magento Database User
+  mysql_user:
+    name: "{{ db_user }}"
+    password: "{{ db_password }}"
+    priv: "*.*:ALL"
+    state: present
+
+- name: Set Magento Database
+  mysql_db:
+    name: "{{ db_name }}"
+    state: present
