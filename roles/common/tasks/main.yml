@@ -1,0 +1,11 @@
+---
+- name: Update Repository and Full-Upgrade Packages
+  become: true
+  become_method: sudo
+  apt:
+    update_cache: yes
+    upgrade: full
+
+- name: Set Server Timezone to {{ timezone }}
+  timezone:
+    name: "{{ timezone }}"
