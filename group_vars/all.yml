@@ -1,3 +1,6 @@
 ---
 # Server configuration
 timezone: America/Lima
+
+# Package version
+php_version: 8.1
