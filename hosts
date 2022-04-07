@@ -1,2 +1,8 @@
-[magento]
-host01 ansible_host=127.0.0.1
+[localhost]
+all ansible_host=127.0.0.1
+
+[telefonica]
+telefonica.local ansible_host=127.0.0.1
+
+[telefonica-mb]
+telefonica-mb.local ansible_host=127.0.0.1

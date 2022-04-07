@@ -9,3 +9,16 @@
     - composer
     - git
     - magento
+    # - nginx
+
+- hosts: telefonica
+  become: true
+  become_method: sudo
+  roles:
+    - nginx
+
+- hosts: telefonica-mb
+  become: true
+  become_method: sudo
+  roles:
+    - nginx

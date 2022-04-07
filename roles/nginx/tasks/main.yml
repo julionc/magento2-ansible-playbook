@@ -4,6 +4,26 @@
     name: nginx
     state: latest
 
+- name: Create fastcgi_backend
+  template:
+    src: fastcgi_backend.j2
+    dest: "/etc/nginx/conf.d/fastcgi_backend.conf"
+    owner: root
+    group: root
+    backup: yes
+  notify:
+    - Reload Nginx Configuration
+
+- name: Edit fastcgi_params
+  template:
+    src: fastcgi_params.j2
+    dest: "/etc/nginx/fastcgi_params"
+    owner: root
+    group: root
+    backup: yes
+  notify:
+    - Reload Nginx Configuration
+
 - name: Add Nginx Configuration File
   template:
     src: magento.j2
