@@ -1,0 +1,15 @@
+---
+- name: Check if Directory already exists
+  stat:
+    path: "{{ magento_dir }}"
+  register: register_directory
+
+- name: Git Clone the repository
+  become_user: magento
+  ansible.builtin.git:
+    repo: "{{ git_repository }}"
+    dest: "{{ magento_dir }}"
+    key_file: "{{ ssh_rsa_key }}"
+    single_branch: yes
+    version: "{{ git_branch }}"
+  when: not register_directory.stat.exists

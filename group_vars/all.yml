@@ -6,6 +6,11 @@ timezone: America/Lima
 php_version: 8.1
 mysql_version: 8.0
 
+# Git configuration
+git_repository: git@bitbucket.org:telefonica-peru/dev-ecommerce-tdp-bkp.git
+git_branch: magento24
+ssh_rsa_key: /home/magento/.ssh/id_rsa
+
 # Database configuration
 db_host: localhost
 db_name: magento
