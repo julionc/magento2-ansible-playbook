@@ -11,6 +11,10 @@ git_repository: git@bitbucket.org:telefonica-peru/dev-ecommerce-tdp-bkp.git
 git_branch: magento24
 ssh_rsa_key: /home/magento/.ssh/id_rsa
 
+# Nginx configuration
+server_hostname: telefonica.local
+magento_dir: /home/magento/Sites/telefonica
+
 # Database configuration
 db_host: localhost
 db_name: magento
