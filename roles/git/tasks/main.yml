@@ -1,4 +1,9 @@
 ---
+- name: Install Git
+  apt:
+    name: git
+    install_recommends: no
+
 - name: Check if Directory already exists
   stat:
     path: "{{ magento_dir }}"

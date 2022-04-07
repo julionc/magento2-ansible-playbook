@@ -4,13 +4,15 @@
   become_method: sudo
   roles:
     - common
+    - git
     - php
     - mysql
     - composer
-    - git
     - magento
-    # - nginx
+    - nginx
     - elasticsearch
+    - phpmyadmin
+    - nginx_default
 
 - hosts: telefonica
   become: true

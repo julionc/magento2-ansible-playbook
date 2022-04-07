@@ -2,7 +2,7 @@
 - name: Install Nginx
   apt:
     name: nginx
-    state: latest
+    install_recommends: no
 
 - name: Create fastcgi_backend
   template:
@@ -23,6 +23,7 @@
     backup: yes
   notify:
     - Reload Nginx Configuration
+  when: server_hostname is defined
 
 - name: Add Nginx Configuration File
   template:
@@ -32,8 +33,7 @@
     group: root
     mode: "0644"
     backup: yes
-  notify:
-    - Reload Nginx Configuration
+  when: server_hostname is defined
 
 - name: Create Symbolic Link
   file:
@@ -44,6 +44,6 @@
     state: link
   notify:
     - Reload Nginx Configuration
-
-- name: Start Nginx Service
-  command: sudo service nginx start
+  when: server_hostname is defined
+# - name: Restart Nginx Service
+#   command: sudo service nginx restart
