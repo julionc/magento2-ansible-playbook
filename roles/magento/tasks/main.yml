@@ -1,0 +1,23 @@
+---
+- name: Set Files Permissions to g+w
+  # shell: find var generated vendor pub/static pub/media app/etc -type f -exec chmod g+w {} \;
+  shell: find var vendor pub/static pub/media app/etc -type f -exec chmod g+w {} \;
+  args:
+    chdir: "{{ magento_dir }}"
+
+- name: Set Directories Permissions to g+ws
+  # shell: find var generated vendor pub/static pub/media app/etc -type d -exec chmod g+ws {} \;
+  shell: find var vendor pub/static pub/media app/etc -type d -exec chmod g+ws {} \;
+  args:
+    chdir: "{{ magento_dir }}"
+
+- name: Set Files and Directories Group User
+  file:
+    dest: "{{ magento_dir }}"
+    group: www-data
+    recurse: yes
+
+- name: Set Permission u+x to bin/magento
+  file:
+    path: "{{ magento_dir }}/bin/magento"
+    mode: u+x
