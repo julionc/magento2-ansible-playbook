@@ -29,6 +29,13 @@
       ]
     state: present
 
+- name: Replace Unix User/Group of processes at fpm/pool.d/www.conf
+  replace:
+    path: /etc/php/{{ php_version }}/fpm/pool.d/www.conf
+    regexp: "^(.*)user = www-data(.*)$"
+    replace: "user = magento"
+    backup: yes
+
 - name: Start PHP {{ php_version }} Service
   command: sudo service php{{ php_version }}-fpm start
   changed_when: false
