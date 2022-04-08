@@ -36,6 +36,22 @@
     replace: "user = magento"
     backup: yes
 
+- name: Configure cli/php.ini file
+  lineinfile:
+    path: "{{ php_cli_ini_path }}"
+    regexp: "{{ item.parameter }} ="
+    line: "{{ item.parameter }} = {{ item.value }}"
+    backup: yes
+  with_items: "{{ php_cli_ini_parameters_and_values }}"
+
+- name: Configure fpm/php.ini file
+  lineinfile:
+    path: "{{ php_fpm_ini_path }}"
+    regexp: "{{ item.parameter }} ="
+    line: "{{ item.parameter }} = {{ item.value }}"
+    backup: yes
+  with_items: "{{ php_fpm_ini_parameters_and_values }}"
+
 - name: Start PHP {{ php_version }} Service
   command: sudo service php{{ php_version }}-fpm start
   changed_when: false
