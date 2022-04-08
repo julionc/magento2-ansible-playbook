@@ -13,6 +13,12 @@
     - elasticsearch
     - phpmyadmin
     - nginx_default
+    - utils
+  tasks:
+    - name: Remove useless packages from the cache
+      apt:
+        autoclean: yes
+        autoremove: yes
 
 - hosts: telefonica
   become: true

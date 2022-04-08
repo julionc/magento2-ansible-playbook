@@ -27,7 +27,8 @@
         "php{{ php_version }}-xsl",
         "php{{ php_version }}-zip",
       ]
-    state: latest
+    state: present
 
 - name: Start PHP {{ php_version }} Service
   command: sudo service php{{ php_version }}-fpm start
+  changed_when: false

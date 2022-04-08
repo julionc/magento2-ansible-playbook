@@ -10,6 +10,7 @@
   register: register_directory
 
 - name: Git Clone the repository
+  become: true
   become_user: magento
   ansible.builtin.git:
     repo: "{{ git_repository }}"

@@ -6,12 +6,15 @@
     upgrade: yes
     update_cache: yes
     cache_valid_time: 86400 # one day
+    autoclean: yes
+    autoremove: yes
 
 - name: Set Server Timezone to {{ timezone }}
   timezone:
     name: "{{ timezone }}"
 
 - name: Create a directory if it does not exist
+  become: true
   become_user: magento
   file:
     path: /home/magento/Sites

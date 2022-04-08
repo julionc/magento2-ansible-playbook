@@ -1,15 +1,4 @@
 ---
-# - name: Restart MySQL Service
-#   service:
-#     name: mysql
-#     state: restarted
-
-# - name: Start MySQL Service
-#   service:
-#     name: mysql
-#     state: started
-#     enabled: true
-
 - name: Restart MySQL Service
   command: sudo service mysql restart
 

@@ -6,14 +6,16 @@
     mode: 0755
 
 - name: Install Composer using PHP
-  shell: php composer-installer
+  command: php composer-installer
   args:
     chdir: /tmp/
+  changed_when: false
 
 - name: Move Composer File to /user/local/bin
-  shell: mv composer.phar /usr/local/bin/composer
+  command: mv composer.phar /usr/local/bin/composer
   args:
     chdir: /tmp/
+  changed_when: false
 
 - name: Create Symbolic Link
   file:
