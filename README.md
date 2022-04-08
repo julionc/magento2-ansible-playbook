@@ -26,7 +26,7 @@ Update the values in:
 Then after editing, run:
 
 ```
-ansible-playbook -c local -i localhost, playbook.yml
+ansible-playbook -c local -i localhost,telefonica,telefonica-mb playbook.yml
 ```
 
 ## Check Syntax
@@ -34,5 +34,13 @@ ansible-playbook -c local -i localhost, playbook.yml
 Basic role syntax check
 
 ```
-ansible-playbook -c local -i localhost, playbook.yml --syntax-check
+ansible-playbook -c local -i localhost,telefonica,telefonica-mb --syntax-check
+```
+
+## Check Lint
+
+Run Lint tool to check best practice.
+
+```
+ansible-lint
 ```
