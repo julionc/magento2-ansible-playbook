@@ -17,8 +17,3 @@
     group: root
     state: link
   when: server_hostname is defined
-  notify:
-    - Reload Nginx Configuration
-#
-# - name: Restart Nginx Service
-#   command: sudo service nginx restart

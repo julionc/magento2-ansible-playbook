@@ -19,5 +19,3 @@
     owner: root
     group: root
     backup: yes
-  notify:
-    - Reload Nginx Configuration
