@@ -4,7 +4,7 @@ printf "\n"
 sudo service elasticsearch stop
 sudo service mysql stop
 # sudo service redis-server stop
-sudo service php8.1-fpm stop
+sudo service php{{ php_version }}-fpm stop
 sudo service nginx stop
 
 UNICORN='\U1F984'

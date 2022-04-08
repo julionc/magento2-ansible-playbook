@@ -4,17 +4,15 @@
     name: nginx
     install_recommends: no
 
-- name: Create fastcgi_backend
+- name: Create fastcgi_backend File
   template:
     src: fastcgi_backend.j2
     dest: "/etc/nginx/conf.d/fastcgi_backend.conf"
     owner: root
     group: root
     backup: yes
-  notify:
-    - Reload Nginx Configuration
 
-- name: Edit fastcgi_params
+- name: Edit fastcgi_params File
   template:
     src: fastcgi_params.j2
     dest: "/etc/nginx/fastcgi_params"
@@ -23,27 +21,3 @@
     backup: yes
   notify:
     - Reload Nginx Configuration
-  when: server_hostname is defined
-
-- name: Add Nginx Configuration File
-  template:
-    src: magento.j2
-    dest: "/etc/nginx/sites-available/{{ server_hostname }}"
-    owner: root
-    group: root
-    mode: "0644"
-    backup: yes
-  when: server_hostname is defined
-
-- name: Create Symbolic Link
-  file:
-    src: "/etc/nginx/sites-available/{{ server_hostname }}"
-    dest: "/etc/nginx/sites-enabled/{{ server_hostname }}"
-    owner: root
-    group: root
-    state: link
-  notify:
-    - Reload Nginx Configuration
-  when: server_hostname is defined
-# - name: Restart Nginx Service
-#   command: sudo service nginx restart

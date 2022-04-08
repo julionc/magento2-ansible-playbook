@@ -26,6 +26,10 @@
   notify:
     - Restart MySQL Service
 
+- name: Start MySQL Service
+  command: sudo service mysql start
+  changed_when: false
+
 - name: Set Magento Database User
   mysql_user:
     name: "{{ db_user }}"

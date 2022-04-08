@@ -24,10 +24,10 @@
   become: true
   become_method: sudo
   roles:
-    - nginx
+    - website
 
 - hosts: telefonica-mb
   become: true
   become_method: sudo
   roles:
-    - nginx
+    - website
