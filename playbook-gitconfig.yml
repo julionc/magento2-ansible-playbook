@@ -1,6 +1,6 @@
 ---
 - hosts: localhost
   become: true
-  become_method: sudo
+  become_user: magento
   roles:
-    - php
+    - git_config

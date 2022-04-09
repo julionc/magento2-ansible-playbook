@@ -1,0 +1,35 @@
+- name: Add a setting to ~/.gitconfig
+  community.general.git_config:
+    name: alias.br
+    scope: global
+    value: branch
+
+- name: Add a setting to ~/.gitconfig
+  community.general.git_config:
+    name: alias.co
+    scope: global
+    value: checkout
+
+- name: Add a setting to ~/.gitconfig
+  community.general.git_config:
+    name: alias.ci
+    scope: global
+    value: "commit -m"
+
+- name: Add a setting to ~/.gitconfig
+  community.general.git_config:
+    name: alias.st
+    scope: global
+    value: status
+
+- name: Add a setting to ~/.gitconfig
+  community.general.git_config:
+    name: alias.ll
+    scope: global
+    value: "log --pretty=oneline --abbrev-commit --max-count=15"
+
+- name: Add a setting to ~/.gitconfig
+  community.general.git_config:
+    name: alias.lg
+    scope: global
+    value: "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --"

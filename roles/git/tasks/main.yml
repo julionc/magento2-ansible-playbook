@@ -12,7 +12,7 @@
 - name: Git Clone the repository
   become: true
   become_user: magento
-  ansible.builtin.git:
+  git:
     repo: "{{ git_repository }}"
     dest: "{{ magento_dir }}"
     key_file: "{{ ssh_rsa_key }}"
