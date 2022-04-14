@@ -10,12 +10,19 @@
   register: register_directory
 
 - name: Git Clone the repository
+  environment:
+    TMPDIR: "{{ remote_tmp_dir }}"
+    TMP: "{{ remote_tmp_dir }}"
+    TEMP: "{{ remote_tmp_dir }}"
   become: true
   become_user: magento
+  become_method: sudo
   git:
     repo: "{{ git_repository }}"
     dest: "{{ magento_dir }}"
     key_file: "{{ ssh_rsa_key }}"
-    single_branch: yes
     version: "{{ git_branch }}"
+    accept_hostkey: yes
+    force: yes
+    recursive: no
   when: not register_directory.stat.exists

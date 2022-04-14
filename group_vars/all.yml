@@ -8,8 +8,9 @@ mysql_version: 8.0
 
 # Git configuration
 git_repository: git@bitbucket.org:telefonica-peru/dev-ecommerce-tdp-bkp.git
-git_branch: magento24
+git_branch: magento244
 ssh_rsa_key: /home/magento/.ssh/id_rsa
+remote_tmp_dir: /home/magento/magento2-ansible-playbook/tmp
 
 # Magento
 magento_dir: /home/magento/Sites/telefonica
@@ -43,7 +44,7 @@ php_cli_ini_parameters_and_values:
   - parameter: max_input_time
     value: 1000
   - parameter: memory_limit
-    value: 256M
+    value: 512M
   - parameter: post_max_size
     value: 48M
   - parameter: upload_max_filesize
@@ -69,6 +70,6 @@ php_fpm_ini_parameters_and_values:
   - parameter: max_input_time
     value: 1000
   - parameter: memory_limit
-    value: 128M
+    value: 2GB
   - parameter: "zlib.output_compression"
     value: "off"
