@@ -14,6 +14,7 @@
     - phpmyadmin
     - nginx_default
     - utils
+    - git_config
   tasks:
     - name: Remove useless packages from the cache
       apt:
