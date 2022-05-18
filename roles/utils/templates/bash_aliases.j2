@@ -12,7 +12,6 @@ alias m2s="m2 module:status"
 
 # Setup
 alias m2up="m2 setup:upgrade && m2 setup:di:compile && m2 cache:flush"
-#alias m2up="sudo find var -type d -exec chmod 775 {} \; && sudo find var -type f -exec chmod 664 {} \; && m2en --all && m2 setup:upgrade && m2rmgen && m2f"
 alias m2static="sudo rm -rf var/view_preprocessed/* pub/static/frontend/* pub/static/adminhtml/* pub/static/_requirejs/*"
 
 # Cache
@@ -27,6 +26,13 @@ alias m2perm_sudo="sudo find var vendor pub/static pub/media app/etc -type f -ex
 
 # Testing
 alias m2ut="./vendor/bin/phpunit -c dev/tests/unit/phpunit.xml.dist"
+
+# Tools
+alias phpcs="./vendor/bin/phpcs --standard=Magento2"
+alias phpcbf="./vendor/bin/phpcbf --standard=Magento2"
+alias _phpmd='./vendor/bin/phpmd'
+phpmd() { _phpmd "$1" text cleancode,dev/tests/static/testsuite/Magento/Test/Php/_files/phpmd/ruleset.xml; }
+mkcd() { mkdir -p -- "$1" && cd -P -- "$1"; }
 
 # Others
 alias m2tail="tail -f -n 0 var/log/*.log /var/log/nginx/error.log"
