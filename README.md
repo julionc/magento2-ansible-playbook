@@ -28,16 +28,25 @@ Then after editing, run:
 ```
 ansible-playbook -c local -i localhost,telefonica,telefonica-mb playbook.yml
 ```
+## Update
 
-## Check Syntax
+Run:
+
+```
+sudo bash setup.sh
+```
+
+## Development
+
+### Check Syntax
 
 Basic role syntax check
 
 ```
-ansible-playbook -c local -i localhost,telefonica,telefonica-mb --syntax-check
+ansible-playbook -c local -i localhost,telefonica,telefonica-mb playbook.yml --syntax-check
 ```
 
-## Check Lint
+### Check Lint
 
 Run Lint tool to check best practice.
 

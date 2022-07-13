@@ -9,3 +9,4 @@ if [ "$(id -u)" != "0" ]; then
 fi
 
 sudo ansible-playbook -c local -i localhost,telefonica,telefonica-mb playbook.yml
+exec $SHELL
