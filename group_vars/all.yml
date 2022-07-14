@@ -44,7 +44,7 @@ php_cli_ini_parameters_and_values:
   - parameter: max_input_time
     value: 1000
   - parameter: memory_limit
-    value: 2GB
+    value: 2G
   - parameter: post_max_size
     value: 48M
   - parameter: upload_max_filesize
@@ -70,6 +70,6 @@ php_fpm_ini_parameters_and_values:
   - parameter: max_input_time
     value: 1000
   - parameter: memory_limit
-    value: 4GB
+    value: 4G
   - parameter: "zlib.output_compression"
     value: "off"

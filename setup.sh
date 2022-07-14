@@ -9,4 +9,5 @@ if [ "$(id -u)" != "0" ]; then
 fi
 
 sudo ansible-playbook -c local -i localhost,telefonica,telefonica-mb playbook.yml
+ln -sf roles/utils/templates/bash_aliases.j2 ~/.bash_aliases
 exec $SHELL
