@@ -23,3 +23,19 @@
     path: "{{ magento_dir }}/bin/magento"
     mode: u+x
   changed_when: false
+
+- name: Create pub/media/import directory if it does not exist
+  become: true
+  become_user: magento
+  file:
+    path: /home/magento/Sites/telefonica/pub/media/import
+    state: directory
+    mode: "0755"
+
+- name: Create Import Images Symbolic Link
+  file:
+    src: /home/magento/Sites/telefonica/pub/media/import
+    dest: /home/magento/Sites/telefonica/var/import/images
+    owner: magento
+    group: www-data
+    state: link
