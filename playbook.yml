@@ -15,6 +15,7 @@
     - nginx_default
     - utils
     - git_config
+    - n98_magerun
   tasks:
     - name: Remove useless packages from the cache
       apt:
