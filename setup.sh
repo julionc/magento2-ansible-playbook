@@ -23,7 +23,7 @@ fi
 # Setup
 sudo ansible-playbook -c local -i localhost,telefonica,telefonica-mb playbook.yml
 exit
-ln -sf roles/utils/templates/bash_aliases.j2 ~/.bash_aliases
+ln -sf /home/magento/magento2-ansible-playbook/roles/utils/templates/bash_aliases.j2 ~/.bash_aliases
 exit
 exec $SHEL
 

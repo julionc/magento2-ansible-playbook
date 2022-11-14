@@ -12,7 +12,7 @@ alias m2s="m2 module:status"
 
 # Setup
 alias m2up="m2 setup:upgrade && m2 setup:di:compile && m2 cache:flush"
-alias m2static="sudo rm -rf var/view_preprocessed/* pub/static/frontend/* pub/static/adminhtml/* pub/static/_requirejs/*"
+# alias m2static="sudo rm -rf var/view_preprocessed/* pub/static/frontend/* pub/static/adminhtml/* pub/static/_requirejs/*"
 
 # Cache
 alias m2cf="m2 cache:flush"
@@ -24,16 +24,17 @@ alias m2fixperms="sudo chown -R $(whoami):$WEBSERVER_GROUP . && sudo chmod 777 v
 alias m2perm="find var vendor pub/static pub/media app/etc -type f -exec chmod g+w {} \; && find var vendor pub/static pub/media app/etc -type d -exec chmod g+ws {} \; && chown -R :$WEBSERVER_GROUP . && chmod u+x bin/magento"
 alias m2perm_sudo="sudo find var vendor pub/static pub/media app/etc -type f -exec chmod g+w {} \; && sudo find var vendor pub/static pub/media app/etc -type d -exec chmod g+ws {} \; && sudo chown -R :$WEBSERVER_GROUP . && sudo chmod u+x bin/magento"
 
-# Testing
-alias m2ut="./vendor/bin/phpunit -c dev/tests/unit/phpunit.xml.dist"
-
 # Tools
-alias phpcs="./vendor/bin/phpcs --standard=Magento2"
-alias phpcbf="./vendor/bin/phpcbf --standard=Magento2"
-alias _phpmd='./vendor/bin/phpmd'
+alias phpcs="php ./vendor/bin/phpcs --standard=Magento2"
+alias phpcbf="php ./vendor/bin/phpcbf --standard=Magento2"
+alias _phpmd='php ./vendor/bin/phpmd'
 phpmd() { _phpmd "$1" text cleancode,dev/tests/static/testsuite/Magento/Test/Php/_files/phpmd/ruleset.xml; }
 mkcd() { mkdir -p -- "$1" && cd -P -- "$1"; }
 
+# Testing
+alias phpunit="php ./vendor/bin/phpunit -c dev/tests/unit/phpunit.xml.dist"
+
 # Others
 alias m2tail="tail -f -n 0 var/log/*.log /var/log/nginx/error.log"
-alias upgcc='m2 setup:upgrade && m2 setup:static-content:deploy -f --area="frontend" es_PE --theme Movistar/Telefonica && m2 setup:static-content:deploy -f --area="adminhtml" && m2 c:f'
+alias upgcc='m2 setup:upgrade && m2 setup:static-content:deploy -f --area="frontend" es_PE --theme Movistar/TelefonicaHispam && m2 setup:static-content:deploy -f --area="adminhtml" && m2 c:f'
+alias m2static='m2 setup:static-content:deploy -f --area="frontend" es_PE --theme Movistar/TelefonicaHispam && m2 setup:static-content:deploy -f --area="adminhtml" && m2 c:f'
