@@ -12,7 +12,6 @@ alias m2s="m2 module:status"
 
 # Setup
 alias m2up="m2 setup:upgrade && m2 setup:di:compile && m2 cache:flush"
-# alias m2static="sudo rm -rf var/view_preprocessed/* pub/static/frontend/* pub/static/adminhtml/* pub/static/_requirejs/*"
 
 # Cache
 alias m2cf="m2 cache:flush"
@@ -25,8 +24,11 @@ alias m2perm="find var vendor pub/static pub/media app/etc -type f -exec chmod g
 alias m2perm_sudo="sudo find var vendor pub/static pub/media app/etc -type f -exec chmod g+w {} \; && sudo find var vendor pub/static pub/media app/etc -type d -exec chmod g+ws {} \; && sudo chown -R :$WEBSERVER_GROUP . && sudo chmod u+x bin/magento"
 
 # Tools
+alias php-cs-fixer="PHP_CS_FIXER_IGNORE_ENV=true php ./vendor/bin/php-cs-fixer"
 alias phpcs="php ./vendor/bin/phpcs --standard=Magento2"
 alias phpcbf="php ./vendor/bin/phpcbf --standard=Magento2"
+alias phpcpd="php ./vendor/bin/phpcpd"
+alias phpstan="php ./vendor/bin/phpstan"
 alias _phpmd='php ./vendor/bin/phpmd'
 phpmd() { _phpmd "$1" text cleancode,dev/tests/static/testsuite/Magento/Test/Php/_files/phpmd/ruleset.xml; }
 mkcd() { mkdir -p -- "$1" && cd -P -- "$1"; }
@@ -34,7 +36,10 @@ mkcd() { mkdir -p -- "$1" && cd -P -- "$1"; }
 # Testing
 alias phpunit="php ./vendor/bin/phpunit -c dev/tests/unit/phpunit.xml.dist"
 
-# Others
-alias m2tail="tail -f -n 0 var/log/*.log /var/log/nginx/error.log"
+# Frontend
 alias upgcc='m2 setup:upgrade && m2 setup:static-content:deploy -f --area="frontend" es_PE --theme Movistar/TelefonicaHispam && m2 setup:static-content:deploy -f --area="adminhtml" && m2 c:f'
 alias m2static='m2 setup:static-content:deploy -f --area="frontend" es_PE --theme Movistar/TelefonicaHispam && m2 setup:static-content:deploy -f --area="adminhtml" && m2 c:f'
+
+# Others
+alias m2ir="m2 index:reindex"
+alias m2tail="tail -f -n 0 var/log/*.log /var/log/nginx/error.log"
