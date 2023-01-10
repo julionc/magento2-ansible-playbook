@@ -44,7 +44,7 @@ php_cli_ini_parameters_and_values:
   - parameter: max_input_time
     value: 1000
   - parameter: memory_limit
-    value: 2G
+    value: -1
   - parameter: post_max_size
     value: 48M
   - parameter: upload_max_filesize
