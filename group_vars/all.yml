@@ -28,6 +28,9 @@ elasticsearch_http_port: 9200
 elasticsearch_heap_size_min: 2g
 elasticsearch_heap_size_max: 4g
 
+# Nodejs
+nodejs_version: "18.x"
+
 # PHP CLI configuration
 
 # Full path to cli/php.ini file

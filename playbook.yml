@@ -17,6 +17,7 @@
     - utils
     - git_config
     - n98_magerun
+    - nodejs
   tasks:
     - name: Remove useless packages from the cache
       apt:
