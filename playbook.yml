@@ -18,6 +18,7 @@
     - git_config
     - n98_magerun
     - nodejs
+    - yarn
   tasks:
     - name: Remove useless packages from the cache
       apt:
