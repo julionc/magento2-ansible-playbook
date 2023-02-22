@@ -1,0 +1,5 @@
+---
+- name: Install Redis Server
+  apt:
+    name: redis-server
+    install_recommends: no

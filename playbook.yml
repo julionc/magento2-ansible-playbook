@@ -13,6 +13,7 @@
     - elasticsearch
     - phpmyadmin
     - nginx_default
+    - redis
     - utils
     - git_config
     - n98_magerun
